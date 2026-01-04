@@ -6,9 +6,9 @@ import Projects from "./Projects";
 import Resume from "./Resume";
 import Contact from "./Contact";
 import BlogPost from "./BlogPost";
-import CV from "../resume/ResumeViewer";
+// import CV from "../resume/ResumeViewer"; // Commented out CV import - keeping Resume as primary
 import {
-  FaBriefcase,
+  // FaBriefcase, // Commented out - was used for CV navigation
   FaPencilAlt,
   FaSun,
   FaMoon,
@@ -94,8 +94,8 @@ const Portfolio = ({ section = "home" }) => {
         return <Projects />;
       case "resume":
         return <Resume />;
-      case "CV":
-        return <CV />;
+      // case "CV": // Commented out CV case - using Resume as primary
+      //   return <CV />;
       case "Blogs":
         return <BlogPost />;
       case "contact":
@@ -138,9 +138,10 @@ const Portfolio = ({ section = "home" }) => {
           <li onClick={() => handleNavClick("Blogs")}>
             <FaPencilAlt style={{ marginRight: "6px" }} /> Blogs
           </li>
-          <li onClick={() => handleNavClick("CV")}>
+          {/* Commented out CV navigation - using Resume as primary */}
+          {/* <li onClick={() => handleNavClick("CV")}>
             <FaBriefcase style={{ marginRight: "6px" }} /> CV
-          </li>
+          </li> */}
           <li onClick={() => handleNavClick("resume")}>
             <FaUserTie style={{ marginRight: "6px" }} /> Resume
           </li>

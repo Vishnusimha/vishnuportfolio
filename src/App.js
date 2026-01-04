@@ -20,7 +20,8 @@ const App = () => {
         <Route path="/home" element={<Portfolio section="home" />} />
         <Route path="/projects" element={<Portfolio section="projects" />} />
         <Route path="/resume" element={<Portfolio section="resume" />} />
-        <Route path="/CV" element={<Portfolio section="CV" />} />
+        {/* CV route commented out - using Resume as primary term for North American market */}
+        {/* <Route path="/CV" element={<Portfolio section="CV" />} /> */}
         <Route path="/blogs" element={<Portfolio section="Blogs" />} />
         <Route path="/contact" element={<Portfolio section="contact" />} />
         <Route path="/resume-viewer" element={<ResumeViewer />} />

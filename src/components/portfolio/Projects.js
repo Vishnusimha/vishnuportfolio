@@ -25,22 +25,45 @@ import AndroidFeat5 from "../../assets/work/AndroidFeatures/xmlscreen1.png";
 import AndroidFeat6 from "../../assets/work/AndroidFeatures/Xmlscreen2.png";
 import OpenWeatherApp1 from "../../assets/work/WeatherDashboard/WeatherDashboard1.png";
 import OpenWeatherApp2 from "../../assets/work/WeatherDashboard/WeatherDashboard2.png";
-import SK1 from "../../assets/work/StockKeeper/WelcomeScreen1.png";
-import SK2 from "../../assets/work/StockKeeper/WelcomeScreenError.png";
-import SK3 from "../../assets/work/StockKeeper/StockScreen.png";
-import SK4 from "../../assets/work/StockKeeper/AddNewStock.png";
-import SK5 from "../../assets/work/StockKeeper/allstocks.png";
-import SK6 from "../../assets/work/StockKeeper/DynamicDarkMaterialTheme.png";
-import SK7 from "../../assets/work/StockKeeper/searchStock.png";
-import SK8 from "../../assets/work/StockKeeper/stockbyexpirydate.png";
-import SK9 from "../../assets/work/StockKeeper/stockbyquantity.png";
-import SK10 from "../../assets/work/StockKeeper/PlanScreen.png";
-import SK11 from "../../assets/work/StockKeeper/PlanMakerAll.png";
-import SK12 from "../../assets/work/StockKeeper/PlanMakerByCategory.png";
-import SK13 from "../../assets/work/StockKeeper/PlanMakerByShop.png";
-import SK14 from "../../assets/work/StockKeeper/PlanScreen2.png";
-import SK15 from "../../assets/work/StockKeeper/ProfileScreen.png";
-import SK16 from "../../assets/work/StockKeeper/AlertsScreen.png";
+import SK1 from "../../assets/work/StockKeeper/OnBoarding One.png";
+import SK2 from "../../assets/work/StockKeeper/OnBoarding Two.png";
+import SK3 from "../../assets/work/StockKeeper/OnBoarding Three.png";
+import SK4 from "../../assets/work/StockKeeper/OnBoarding Four.png";
+import SK5 from "../../assets/work/StockKeeper/OnBoarding Five.png";
+import SK6 from "../../assets/work/StockKeeper/Sign up Screen.png";
+import SK7 from "../../assets/work/StockKeeper/Login screen.png";
+import SK8 from "../../assets/work/StockKeeper/Reset password Screen.png";
+import SK9 from "../../assets/work/StockKeeper/Stock Screen.png";
+import SK10 from "../../assets/work/StockKeeper/In App Search.png";
+import SK11 from "../../assets/work/StockKeeper/Quick Add Screen.png";
+import SK12 from "../../assets/work/StockKeeper/Add New Stock Screen.png";
+import SK13 from "../../assets/work/StockKeeper/Easy Updates StockScreen.png";
+import SK14 from "../../assets/work/StockKeeper/Alerts.png";
+import SK15 from "../../assets/work/StockKeeper/Alerts Screen.png";
+import SK16 from "../../assets/work/StockKeeper/App Notification.png";
+import SK17 from "../../assets/work/StockKeeper/Plans Screen.png";
+import SK18 from "../../assets/work/StockKeeper/Create Plan Screen.png";
+import SK19 from "../../assets/work/StockKeeper/Saved Shopping Plans.png";
+import SK20 from "../../assets/work/StockKeeper/Shopping Plan Preparing Screen.png";
+import SK21 from "../../assets/work/StockKeeper/Profile Screen.png";
+import SK22 from "../../assets/work/StockKeeper/10 Inch Tablet Alerts.png";
+import SK23 from "../../assets/work/StockKeeper/10 Inch Tablet Quick Add.png";
+import SK24 from "../../assets/work/StockKeeper/10 Inch Tablet Stock.png";
+import VC1 from "../../assets/work/VigilCam/OnBoarding Screen1.png";
+import VC2 from "../../assets/work/VigilCam/OnBoarding Screen2.png";
+import VC3 from "../../assets/work/VigilCam/App Permissions.png";
+import VC4 from "../../assets/work/VigilCam/Audio Tab Screen.png";
+import VC5 from "../../assets/work/VigilCam/Info Dialog.png";
+import VC6 from "../../assets/work/VigilCam/Control From Notification copy.png";
+import VC7 from "../../assets/work/VigilCam/Control From Notification.png";
+import VC8 from "../../assets/work/VigilCam/Recording Status Notification with Controls.png";
+import VC9 from "../../assets/work/VigilCam/Video Recordings.png";
+import VC10 from "../../assets/work/VigilCam/Video Recordings DT.png";
+import VC11 from "../../assets/work/VigilCam/OnBoarding Screen1 Tablet.png";
+import VC12 from "../../assets/work/VigilCam/App Permissions Tablet.png";
+import VC13 from "../../assets/work/VigilCam/permissions required dialog tablet.png";
+import VC14 from "../../assets/work/VigilCam/Dark Theme Tablet.png";
+import VC15 from "../../assets/work/VigilCam/Audio Screen Tablet.png";
 import CN1 from "../../assets/work/Cloudnine/Home.png";
 import CN2 from "../../assets/work/Cloudnine/Home2.png";
 import CN3 from "../../assets/work/Cloudnine/Gallery.png";
@@ -102,7 +125,13 @@ import ChatApp7 from "../../assets/work/fullstackChatApp/ChatSphereQuestion.png"
 import ChatApp8 from "../../assets/work/fullstackChatApp/ChatSphereCategories.png";
 import ChatApp9 from "../../assets/work/fullstackChatApp/ChatSphereCategories2.png";
 
-import React, { useState } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback,
+} from "react";
 import {
   FiCpu,
   FiGithub,
@@ -113,6 +142,12 @@ import {
   FiGlobe,
   FiDatabase,
   FiActivity,
+  FiPlay,
+  FiPause,
+  FiX,
+  FiZoomIn,
+  FiMaximize2,
+  FiMinimize2,
 } from "react-icons/fi";
 
 import { FaMobileAlt, FaCloud, FaCodeBranch } from "react-icons/fa";
@@ -125,6 +160,7 @@ import { GiArtificialIntelligence } from "react-icons/gi";
 const Projects = React.forwardRef((props, ref) => {
   const projects = [
     {
+      id: "hid-mobile-access",
       name: "HID Mobile Access",
       description:
         "Contributed to the development and maintenance of HID Mobile Access, including app, SDK, and Android watch features. Worked in an agile team, handled sprint stories and customer issues using JIRA.",
@@ -149,9 +185,10 @@ const Projects = React.forwardRef((props, ref) => {
       ],
     },
     {
+      id: "stockkeeper-android-app",
       name: "StocKeeper - Android Stock Management App",
       description:
-        "The ultimate stock management tool for homes and businesses. Track, plan, and purchase with ease. You can take care of your inventory with this StocKeeper app. Track stock levels, set alerts, and optimize your purchases. Perfect for homes and businesses. ",
+        "StocKeeper is a modern inventory management app for homes and businesses, featuring real-time cloud sync and collaborative group modes. It streamlines shopping with quick-add tools, smart low-stock notifications, and expiration alerts. Designed for efficiency, the app offers full offline support and customizable themes, allowing users to track stock levels and optimize purchases seamlessly.",
       technologies: [
         "Kotlin",
         "Jetpack Compose",
@@ -163,9 +200,9 @@ const Projects = React.forwardRef((props, ref) => {
         "Real-time Database",
         "Hilt",
         "Coroutines",
+        "PLAYSTORE RELEASED",
       ],
       media: [
-        AndroidPlaceholder,
         SK1,
         SK2,
         SK3,
@@ -182,6 +219,14 @@ const Projects = React.forwardRef((props, ref) => {
         SK14,
         SK15,
         SK16,
+        SK17,
+        SK18,
+        SK19,
+        SK20,
+        SK21,
+        SK22,
+        SK23,
+        SK24,
       ],
       category: "Mobile Development",
       links: [
@@ -189,6 +234,47 @@ const Projects = React.forwardRef((props, ref) => {
       ],
     },
     {
+      id: "vigilcam-android-app",
+      name: "VigilCam - Background Video & Audio Recorder",
+      description:
+        "VigilCam is a specialized recording app that allows you to capture video and audio even when the screen is off or you are using other apps. Designed for reliability, it uses a background service to ensure long recordings stay stable and aren't interrupted by the system. Users can easily control recordings through notifications, manage files with fast thumbnail previews, and rely on the app even on low-storage devices. It is a secure, user-friendly tool built for seamless, discreet media capture.",
+      technologies: [
+        "Kotlin",
+        "Jetpack Compose",
+        "Foreground Services",
+        "CameraX",
+        "MediaRecorder",
+        "Notifications API",
+        "Material Design",
+        "Coroutines",
+        "Firebase Crashlytics",
+        "PLAYSTORE RELEASED",
+      ],
+      media: [
+        // AndroidPlaceholder,
+        VC1,
+        VC2,
+        VC3,
+        VC4,
+        VC5,
+        VC6,
+        VC7,
+        VC8,
+        VC9,
+        VC10,
+        VC11,
+        VC12,
+        VC13,
+        VC14,
+        VC15,
+      ],
+      category: "Mobile Development",
+      links: [
+        { type: "github", url: "https://github.com/Vishnusimha/VigilCam" },
+      ],
+    },
+    {
+      id: "iot-air-quality-monitoring",
       name: "IoT Indoor Air Quality Monitoring System",
       description:
         "Designed and implemented an IoT-based system to monitor CO2, humidity, and temperature using Raspberry Pi and Adafruit SCD40. Real-time data visualization and alerting through a custom Android app.",
@@ -234,6 +320,7 @@ const Projects = React.forwardRef((props, ref) => {
       ],
     },
     {
+      id: "social-chat-fullstack",
       name: "Social Chat Application - Full-Stack (Android + Spring Boot)",
       description:
         "Built a scalable full-stack social chat app using Java (Spring Boot) microservices and React. Designed secure REST APIs for users, posts, and comments, with JWT authentication, resilient service communication, and MySQL data storage. Created a responsive React frontend for seamless user experience, routing all requests via an API gateway.",
@@ -285,6 +372,7 @@ const Projects = React.forwardRef((props, ref) => {
       ],
     },
     {
+      id: "fullstack-restaurant-webapp",
       name: "Full-Stack Web Application - Online Business",
       description:
         "Developed a web application for an online takeaway restaurant business using Spring Boot and MySQL. The project features a responsive design, user authentication, and a dynamic menu. The backend is powered by Spring Boot, while the frontend is developed using HTML, CSS, and JavaScript.",
@@ -320,6 +408,7 @@ const Projects = React.forwardRef((props, ref) => {
       ],
     },
     {
+      id: "balloon-decor-website",
       name: "Balloon Decor Business Website",
       description:
         "A complete online business website for a balloon decor venture. This full-stack project utilizes Spring Boot and MySQL for the server-side logic and database, complemented by a basic HTML/CSS frontend",
@@ -341,6 +430,7 @@ const Projects = React.forwardRef((props, ref) => {
       ],
     },
     {
+      id: "feature-rich-android-apps",
       name: "Feature-Rich Android Applications",
       description:
         "Created modern Android apps using Kotlin with Jetpack Compose and XML views, integrating technologies like Retrofit, Room, Firebase, Hilt, and Coroutines to deliver scalable, maintainable codebases.",
@@ -440,6 +530,69 @@ const Projects = React.forwardRef((props, ref) => {
       ],
     },
     {
+      id: "notes-android-app",
+      name: "Notes - Android App",
+      description:
+        "Developed a note-taking application for Android using Kotlin and Jetpack Compose. Implemented features like user authentication, note creation, editing, and deletion. Utilized Room Database for local data storage and ensured a smooth user experience with a responsive UI.",
+      technologies: ["Kotlin", "Android", "Jetpack Compose", "Room Database"],
+      media: [
+        AndroidPlaceholder,
+        NotesApp1,
+        NotesApp2,
+        NotesApp3,
+        NotesApp4,
+        NotesApp5,
+        NotesApp6,
+      ],
+      category: "Mobile Development",
+      links: [
+        {
+          type: "github",
+          url: "https://github.com/Vishnusimha/Notes",
+        },
+      ],
+    },
+    {
+      id: "personal-portfolio-website",
+      name: "Personal Portfolio Website",
+      description:
+        "A modern, responsive portfolio website built with React showcasing professional experience, projects, and technical skills. Features interactive project galleries, markdown-based blog system with syntax highlighting, downloadable resume, contact form integration, and dark/light theme toggle. Implements XSS protection with DOMPurify for secure content rendering.",
+      technologies: [
+        "React",
+        "React Router",
+        "React Icons",
+        "React Typed",
+        "Framer Motion",
+        "Lottie React",
+        "Marked",
+        "Highlight.js",
+        "DOMPurify",
+        "EmailJS",
+        "Formspree",
+        "Tailwind CSS",
+        "PostCSS",
+        "GitHub Pages",
+        "Vercel",
+      ],
+      media: [ReactJavaScriptPlaceholder],
+      category: "Full-Stack Development",
+      links: [
+        {
+          type: "github",
+          url: "https://github.com/Vishnusimha/vishnuportfolio",
+        },
+        {
+          type: "demo",
+          url: "https://vishnusimha.github.io/vishnuportfolio",
+        },
+        {
+          type: "demo",
+          url: "https://vishnusimha.github.io/vishnuportfolio/home",
+        },
+      ],
+    },
+    {
+      id: "weather-dashboard-react",
       name: "Weather Dashboard – React Project",
       description:
         "Developed a responsive weather dashboard using React and OpenWeatherMap API. Features include data fetching, error handling, and real-time UI updates. Deployed via GitHub Pages.",
@@ -458,6 +611,7 @@ const Projects = React.forwardRef((props, ref) => {
       ],
     },
     {
+      id: "java-client-server-robot-simulation",
       name: "Java Client-Server Architecture for Multi-Agent Robot Simulation",
       description:
         "Implemented a multi-threaded client-server application in Java for simulating and controlling multiple robot clients. The architecture features a Swing-based GUI on both ends, enabling real-time interaction and visualization. Key functionalities include network communication via Robot objects, concurrent handling of multiple clients, dynamic GUI updates (robot positions, collision alerts, connection status), and client-side speed control with optional automatic updates.",
@@ -494,6 +648,7 @@ const Projects = React.forwardRef((props, ref) => {
       ],
     },
     {
+      id: "human-activity-recognition-ml",
       name: "Human Activity Recognition - Data Analysis and ML",
       description:
         "Built a predictive model using supervised learning on sensor data from the Extrasensory dataset. Performed feature engineering, performance analysis, and model selection.",
@@ -519,6 +674,7 @@ const Projects = React.forwardRef((props, ref) => {
       ],
     },
     {
+      id: "aes-present-encryption-algorithms",
       name: "AES-128 and PRESENT-80 Encryption-Algorithms - Academic Project",
       description:
         "Implemented AES-128 and PRESENT-80 cipher encryption in C++, ensuring adherence to specified key and block sizes. Validated implementation through ECB mode test encryptions and provided a concise comparison between the two algorithms.",
@@ -544,6 +700,7 @@ const Projects = React.forwardRef((props, ref) => {
       ],
     },
     {
+      id: "cpp-design-challenge",
       name: "C++ Design Challenge - Academic Project",
       description:
         "Designed and implemented a robust C++ security system with keypad, fingerprint, and hybrid locks for flexible authentication. Proficiently applied OOP principles like inheritance, polymorphism, and dynamic memory management. Showcased expertise in container classes and algorithms for efficient data manipulation. Overall, demonstrated strong capabilities in software design and implementation.",
@@ -575,12 +732,311 @@ const Projects = React.forwardRef((props, ref) => {
   // State to manage the active category filter, null means "All"
   const [activeCategory, setActiveCategory] = useState(null);
 
+  // Auto-carousel states
+  const [isAutoPlaying, setIsAutoPlaying] = useState(
+    Array(projects.length).fill(true)
+  );
+  const intervalRefs = useRef(Array(projects.length).fill(null));
+  const [userPausedProjects, setUserPausedProjects] = useState(
+    Array(projects.length).fill(false)
+  );
+
+  // Lightbox/Modal states
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxProject, setLightboxProject] = useState(null);
+  const [lightboxImageIndex, setLightboxImageIndex] = useState(0);
+  const [lightboxZoomed, setLightboxZoomed] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(false);
+
+  // Ref for lightbox container to avoid DOM queries
+  const lightboxContainerRef = useRef(null);
+
   // Get unique categories from the projects data
   const categories = Array.from(
     new Set(projects.map((project) => project.category))
   );
 
-  const getCategoryIcons = (category) => {
+  // Create a mapping of project IDs to their indices for better performance
+  const projectIndexMap = useMemo(() => {
+    const map = new Map();
+    projects.forEach((project, index) => {
+      map.set(project.id, index);
+    });
+    return map;
+  }, [projects]);
+
+  // Auto-carousel functionality
+  const startAutoPlay = (projectIndex) => {
+    if (projects[projectIndex].media.length <= 1) return;
+
+    // Clear existing interval if any
+    if (intervalRefs.current[projectIndex]) {
+      clearInterval(intervalRefs.current[projectIndex]);
+    }
+
+    const intervalId = setInterval(() => {
+      setCurrentMediaIndex((prevIndexes) =>
+        prevIndexes.map((index, i) =>
+          i === projectIndex
+            ? (index + 1) % projects[projectIndex].media.length
+            : index
+        )
+      );
+    }, 3000); // Change slide every 3 seconds
+
+    intervalRefs.current[projectIndex] = intervalId;
+    setIsAutoPlaying((prev) =>
+      prev.map((playing, i) => (i === projectIndex ? true : playing))
+    );
+    setUserPausedProjects((prev) =>
+      prev.map((paused, i) => (i === projectIndex ? false : paused))
+    );
+  };
+
+  const stopAutoPlay = (projectIndex) => {
+    if (intervalRefs.current[projectIndex]) {
+      clearInterval(intervalRefs.current[projectIndex]);
+      intervalRefs.current[projectIndex] = null;
+    }
+    setIsAutoPlaying((prev) =>
+      prev.map((playing, i) => (i === projectIndex ? false : playing))
+    );
+    setUserPausedProjects((prev) =>
+      prev.map((paused, i) => (i === projectIndex ? true : paused))
+    );
+  };
+
+  const toggleAutoPlay = (projectIndex) => {
+    if (isAutoPlaying[projectIndex]) {
+      stopAutoPlay(projectIndex);
+    } else {
+      startAutoPlay(projectIndex);
+    }
+  };
+
+  // Lightbox/Modal functions
+  const openLightbox = (projectIndex, imageIndex) => {
+    setLightboxProject(projects[projectIndex]);
+    setLightboxImageIndex(imageIndex);
+    setLightboxOpen(true);
+    setLightboxZoomed(false);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setLightboxProject(null);
+    setLightboxImageIndex(0);
+    setLightboxZoomed(false);
+    setIsFullScreen(false);
+    // Exit fullscreen if currently in fullscreen mode
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    }
+  };
+
+  const nextLightboxImage = () => {
+    if (
+      lightboxProject &&
+      lightboxImageIndex < lightboxProject.media.length - 1
+    ) {
+      setLightboxImageIndex(lightboxImageIndex + 1);
+      setLightboxZoomed(false);
+    }
+  };
+
+  const prevLightboxImage = () => {
+    if (lightboxProject && lightboxImageIndex > 0) {
+      setLightboxImageIndex(lightboxImageIndex - 1);
+      setLightboxZoomed(false);
+    }
+  };
+
+  const toggleLightboxZoom = () => {
+    setLightboxZoomed(!lightboxZoomed);
+  };
+
+  const toggleFullScreen = async () => {
+    if (!document.fullscreenElement) {
+      // Enter fullscreen
+      const lightboxContainer = lightboxContainerRef.current;
+      if (lightboxContainer && lightboxContainer.requestFullscreen) {
+        try {
+          await lightboxContainer.requestFullscreen();
+          setIsFullScreen(true);
+        } catch (err) {
+          console.error("Error entering fullscreen:", err);
+        }
+      }
+    } else {
+      // Exit fullscreen
+      try {
+        await document.exitFullscreen();
+        setIsFullScreen(false);
+      } catch (err) {
+        console.error("Error exiting fullscreen:", err);
+      }
+    }
+  };
+
+  // Keyboard navigation for lightbox
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (!lightboxOpen) return;
+
+      switch (e.key) {
+        case "Escape":
+          closeLightbox();
+          break;
+        case "ArrowLeft":
+          prevLightboxImage();
+          break;
+        case "ArrowRight":
+          nextLightboxImage();
+          break;
+        case "z":
+        case "Z":
+          toggleLightboxZoom();
+          break;
+        case "f":
+        case "F":
+          toggleFullScreen();
+          break;
+        default:
+          break;
+      }
+    },
+    [lightboxOpen, lightboxImageIndex, lightboxProject]
+  );
+
+  // Focus trap for lightbox accessibility
+  useEffect(() => {
+    if (lightboxOpen && lightboxContainerRef.current) {
+      const container = lightboxContainerRef.current;
+      const focusableElements = container.querySelectorAll(
+        'button, [href], [tabindex]:not([tabindex="-1"])'
+      );
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      const handleTabKey = (e) => {
+        if (e.key === "Tab") {
+          if (e.shiftKey) {
+            if (document.activeElement === firstElement) {
+              lastElement.focus();
+              e.preventDefault();
+            }
+          } else {
+            if (document.activeElement === lastElement) {
+              firstElement.focus();
+              e.preventDefault();
+            }
+          }
+        }
+      };
+
+      // Focus the first element when lightbox opens
+      if (firstElement) {
+        firstElement.focus();
+      }
+
+      document.addEventListener("keydown", handleTabKey);
+      return () => document.removeEventListener("keydown", handleTabKey);
+    }
+  }, [lightboxOpen]);
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
+
+  // Handle fullscreen change events
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullScreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () =>
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, []);
+
+  // Sync array lengths with projects count to handle dynamic project changes
+  useEffect(() => {
+    const projectCount = projects.length;
+
+    // Update state arrays if project count has changed
+    setCurrentMediaIndex((prev) => {
+      if (prev.length !== projectCount) {
+        return Array(projectCount).fill(0);
+      }
+      return prev;
+    });
+
+    setIsAutoPlaying((prev) => {
+      if (prev.length !== projectCount) {
+        return Array(projectCount).fill(true);
+      }
+      return prev;
+    });
+
+    setUserPausedProjects((prev) => {
+      if (prev.length !== projectCount) {
+        return Array(projectCount).fill(false);
+      }
+      return prev;
+    });
+
+    // Reset interval refs array if length changed
+    if (intervalRefs.current.length !== projectCount) {
+      // Clear existing intervals
+      intervalRefs.current.forEach((intervalId) => {
+        if (intervalId) {
+          clearInterval(intervalId);
+        }
+      });
+      intervalRefs.current = Array(projectCount).fill(null);
+    }
+  }, [projects.length]);
+
+  // Start auto-play for all projects on component mount
+  useEffect(() => {
+    projects.forEach((project, index) => {
+      if (project.media.length > 1) {
+        startAutoPlay(index);
+      }
+    });
+
+    // Cleanup intervals on unmount
+    return () => {
+      intervalRefs.current.forEach((intervalId) => {
+        if (intervalId) {
+          clearInterval(intervalId);
+        }
+      });
+    };
+  }, []); // Empty dependency array - only run once on mount
+
+  // Handle category changes
+  useEffect(() => {
+    // Clear all intervals when category changes
+    intervalRefs.current.forEach((intervalId) => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    });
+    intervalRefs.current = Array(projects.length).fill(null);
+
+    // Restart auto-play for projects that weren't manually paused
+    setTimeout(() => {
+      projects.forEach((project, index) => {
+        if (project.media.length > 1 && !userPausedProjects[index]) {
+          startAutoPlay(index);
+        }
+      });
+    }, 100);
+  }, [activeCategory]);
+
+  const getCategoryIcons = useCallback((category) => {
     switch (category) {
       case "Mobile Development":
         return (
@@ -636,9 +1092,12 @@ const Projects = React.forwardRef((props, ref) => {
       default:
         return <FiCpu className="inline-icon" />;
     }
-  };
+  }, []);
 
   const handleNextMedia = (projectIndex) => {
+    // Stop auto-play when user interacts and mark as manually paused
+    stopAutoPlay(projectIndex);
+
     setCurrentMediaIndex((prevIndexes) =>
       prevIndexes.map((index, i) =>
         i === projectIndex
@@ -649,6 +1108,9 @@ const Projects = React.forwardRef((props, ref) => {
   };
 
   const handlePrevMedia = (projectIndex) => {
+    // Stop auto-play when user interacts and mark as manually paused
+    stopAutoPlay(projectIndex);
+
     setCurrentMediaIndex((prevIndexes) =>
       prevIndexes.map((index, i) =>
         i === projectIndex
@@ -661,15 +1123,20 @@ const Projects = React.forwardRef((props, ref) => {
   };
 
   const handleThumbnailClick = (projectIndex, mediaIndex) => {
+    // Stop auto-play when user interacts and mark as manually paused
+    stopAutoPlay(projectIndex);
+
     setCurrentMediaIndex((prevIndexes) =>
       prevIndexes.map((index, i) => (i === projectIndex ? mediaIndex : index))
     );
   };
 
   // Filter projects based on the active category
-  const filteredProjects = activeCategory
-    ? projects.filter((project) => project.category === activeCategory)
-    : projects;
+  const filteredProjects = useMemo(() => {
+    return activeCategory
+      ? projects.filter((project) => project.category === activeCategory)
+      : projects;
+  }, [activeCategory, projects]);
 
   return (
     <section ref={ref} className="projects-section" id="projects">
@@ -700,43 +1167,57 @@ const Projects = React.forwardRef((props, ref) => {
       </div>
 
       <div className="projects-container">
-        {filteredProjects.map(
-          (
-            project,
-            index // Use filteredProjects here
-          ) => (
+        {filteredProjects.map((project, index) => {
+          const projectIndex = projectIndexMap.get(project.id);
+          return (
             <div key={project.name} className="project-card">
-              {" "}
-              {/* Using project.name as key for uniqueness */}
               <div className="project-card-inner">
                 <div className="project-media-container">
                   <div className="project-media-wrapper">
-                    {/* Ensure index is correct for currentMediaIndex */}
                     <img
-                      src={
-                        project.media[
-                          currentMediaIndex[projects.indexOf(project)]
-                        ]
-                      } // Find the original index of the filtered project
+                      src={project.media[currentMediaIndex[projectIndex]]}
                       alt={`${project.name} screenshot ${
-                        currentMediaIndex[projects.indexOf(project)] + 1
+                        currentMediaIndex[projectIndex] + 1
                       }`}
                       className="project-media"
                       loading="lazy"
+                      onClick={() =>
+                        openLightbox(
+                          projectIndex,
+                          currentMediaIndex[projectIndex]
+                        )
+                      }
+                      style={{ cursor: "pointer" }}
                     />
                   </div>
 
                   <div className="media-controls">
-                    {/* Ensure index is correct for handlers */}
                     <button
-                      onClick={() => handlePrevMedia(projects.indexOf(project))}
+                      onClick={() => toggleAutoPlay(projectIndex)}
+                      className="media-control-button auto-play-toggle"
+                      aria-label={
+                        isAutoPlaying[projectIndex]
+                          ? "Pause slideshow"
+                          : "Play slideshow"
+                      }
+                      title={
+                        isAutoPlaying[projectIndex]
+                          ? "Pause slideshow"
+                          : "Play slideshow"
+                      }
+                    >
+                      {isAutoPlaying[projectIndex] ? <FiPause /> : <FiPlay />}
+                    </button>
+
+                    <button
+                      onClick={() => handlePrevMedia(projectIndex)}
                       className="media-control-button"
                       aria-label="Previous image"
                     >
                       <FiChevronLeft />
                     </button>
                     <button
-                      onClick={() => handleNextMedia(projects.indexOf(project))}
+                      onClick={() => handleNextMedia(projectIndex)}
                       className="media-control-button"
                       aria-label="Next image"
                     >
@@ -750,14 +1231,10 @@ const Projects = React.forwardRef((props, ref) => {
                         <button
                           key={mediaIndex}
                           onClick={() =>
-                            handleThumbnailClick(
-                              projects.indexOf(project),
-                              mediaIndex
-                            )
+                            handleThumbnailClick(projectIndex, mediaIndex)
                           }
                           className={`thumbnail ${
-                            currentMediaIndex[projects.indexOf(project)] ===
-                            mediaIndex
+                            currentMediaIndex[projectIndex] === mediaIndex
                               ? "active"
                               : ""
                           }`}
@@ -820,9 +1297,113 @@ const Projects = React.forwardRef((props, ref) => {
                 </div>
               </div>
             </div>
-          )
-        )}
+          );
+        })}
       </div>
+
+      {/* Lightbox/Modal */}
+      {lightboxOpen && lightboxProject && (
+        <div
+          className="lightbox-overlay"
+          onClick={(e) => {
+            // Only close if clicking directly on overlay, not on modal content
+            if (e.target === e.currentTarget) {
+              closeLightbox();
+            }
+          }}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="lightbox-title"
+          aria-describedby="lightbox-instructions"
+        >
+          <div
+            ref={lightboxContainerRef}
+            className="lightbox-container"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="lightbox-header">
+              <h3 id="lightbox-title" className="lightbox-title">
+                {lightboxProject.name}
+              </h3>
+              <div className="lightbox-controls">
+                <button
+                  className="lightbox-control-btn"
+                  onClick={toggleLightboxZoom}
+                  title={lightboxZoomed ? "Zoom out" : "Zoom in"}
+                  aria-label={lightboxZoomed ? "Zoom out" : "Zoom in"}
+                >
+                  {lightboxZoomed ? <FiMaximize2 /> : <FiZoomIn />}
+                </button>
+                <button
+                  className="lightbox-control-btn"
+                  onClick={toggleFullScreen}
+                  title={isFullScreen ? "Exit fullscreen" : "Enter fullscreen"}
+                  aria-label={
+                    isFullScreen ? "Exit fullscreen" : "Enter fullscreen"
+                  }
+                >
+                  {isFullScreen ? <FiMinimize2 /> : <FiMaximize2 />}
+                </button>
+                <button
+                  className="lightbox-control-btn"
+                  onClick={closeLightbox}
+                  title="Close"
+                  aria-label="Close lightbox"
+                >
+                  <FiX />
+                </button>
+              </div>
+            </div>
+
+            <div className="lightbox-content">
+              <div className="lightbox-image-container">
+                {lightboxImageIndex > 0 && (
+                  <button
+                    className="lightbox-nav-btn lightbox-nav-prev"
+                    onClick={prevLightboxImage}
+                    title="Previous image"
+                    aria-label="Previous image"
+                  >
+                    <FiChevronLeft />
+                  </button>
+                )}
+
+                <img
+                  src={lightboxProject.media[lightboxImageIndex]}
+                  alt={`${lightboxProject.name} screenshot ${
+                    lightboxImageIndex + 1
+                  }`}
+                  className={`lightbox-image ${lightboxZoomed ? "zoomed" : ""}`}
+                />
+
+                {lightboxImageIndex < lightboxProject.media.length - 1 && (
+                  <button
+                    className="lightbox-nav-btn lightbox-nav-next"
+                    onClick={nextLightboxImage}
+                    title="Next image"
+                    aria-label="Next image"
+                  >
+                    <FiChevronRight />
+                  </button>
+                )}
+              </div>
+
+              <div className="lightbox-info">
+                <div className="lightbox-image-counter">
+                  {lightboxImageIndex + 1} / {lightboxProject.media.length}
+                </div>
+                <div
+                  id="lightbox-instructions"
+                  className="lightbox-instructions"
+                >
+                  Use arrow keys to navigate • Press ESC to close • Press Z to
+                  zoom • Press F for fullscreen
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 });
