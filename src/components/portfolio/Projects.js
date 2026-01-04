@@ -25,22 +25,45 @@ import AndroidFeat5 from "../../assets/work/AndroidFeatures/xmlscreen1.png";
 import AndroidFeat6 from "../../assets/work/AndroidFeatures/Xmlscreen2.png";
 import OpenWeatherApp1 from "../../assets/work/WeatherDashboard/WeatherDashboard1.png";
 import OpenWeatherApp2 from "../../assets/work/WeatherDashboard/WeatherDashboard2.png";
-import SK1 from "../../assets/work/StockKeeper/WelcomeScreen1.png";
-import SK2 from "../../assets/work/StockKeeper/WelcomeScreenError.png";
-import SK3 from "../../assets/work/StockKeeper/StockScreen.png";
-import SK4 from "../../assets/work/StockKeeper/AddNewStock.png";
-import SK5 from "../../assets/work/StockKeeper/allstocks.png";
-import SK6 from "../../assets/work/StockKeeper/DynamicDarkMaterialTheme.png";
-import SK7 from "../../assets/work/StockKeeper/searchStock.png";
-import SK8 from "../../assets/work/StockKeeper/stockbyexpirydate.png";
-import SK9 from "../../assets/work/StockKeeper/stockbyquantity.png";
-import SK10 from "../../assets/work/StockKeeper/PlanScreen.png";
-import SK11 from "../../assets/work/StockKeeper/PlanMakerAll.png";
-import SK12 from "../../assets/work/StockKeeper/PlanMakerByCategory.png";
-import SK13 from "../../assets/work/StockKeeper/PlanMakerByShop.png";
-import SK14 from "../../assets/work/StockKeeper/PlanScreen2.png";
-import SK15 from "../../assets/work/StockKeeper/ProfileScreen.png";
-import SK16 from "../../assets/work/StockKeeper/AlertsScreen.png";
+import SK1 from "../../assets/work/StockKeeper/OnBoarding One.png";
+import SK2 from "../../assets/work/StockKeeper/OnBoarding Two.png";
+import SK3 from "../../assets/work/StockKeeper/OnBoarding Three.png";
+import SK4 from "../../assets/work/StockKeeper/OnBoarding Four.png";
+import SK5 from "../../assets/work/StockKeeper/OnBoarding Five.png";
+import SK6 from "../../assets/work/StockKeeper/Sign up Screen.png";
+import SK7 from "../../assets/work/StockKeeper/Login screen.png";
+import SK8 from "../../assets/work/StockKeeper/Reset password Screen.png";
+import SK9 from "../../assets/work/StockKeeper/Stock Screen.png";
+import SK10 from "../../assets/work/StockKeeper/In App Search.png";
+import SK11 from "../../assets/work/StockKeeper/Quick Add Screen.png";
+import SK12 from "../../assets/work/StockKeeper/Add New Stock Screen.png";
+import SK13 from "../../assets/work/StockKeeper/Easy Updates StockScreen.png";
+import SK14 from "../../assets/work/StockKeeper/Alerts.png";
+import SK15 from "../../assets/work/StockKeeper/Alerts Screen.png";
+import SK16 from "../../assets/work/StockKeeper/App Notification.png";
+import SK17 from "../../assets/work/StockKeeper/Plans Screen.png";
+import SK18 from "../../assets/work/StockKeeper/Create Plan Screen.png";
+import SK19 from "../../assets/work/StockKeeper/Saved Shopping Plans.png";
+import SK20 from "../../assets/work/StockKeeper/Shopping Plan Preparing Screen.png";
+import SK21 from "../../assets/work/StockKeeper/Profile Screen.png";
+import SK22 from "../../assets/work/StockKeeper/10 Inch Tablet Alerts.png";
+import SK23 from "../../assets/work/StockKeeper/10 Inch Tablet Quick Add.png";
+import SK24 from "../../assets/work/StockKeeper/10 Inch Tablet Stock.png";
+import VC1 from "../../assets/work/VigilCam/OnBoarding Screen1.png";
+import VC2 from "../../assets/work/VigilCam/OnBoarding Screen2.png";
+import VC3 from "../../assets/work/VigilCam/App Permissions.png";
+import VC4 from "../../assets/work/VigilCam/Audio Tab Screen.png";
+import VC5 from "../../assets/work/VigilCam/Info Dialog.png";
+import VC6 from "../../assets/work/VigilCam/Control From Notification copy.png";
+import VC7 from "../../assets/work/VigilCam/Control From Notification.png";
+import VC8 from "../../assets/work/VigilCam/Recording Status Notification with Controls.png";
+import VC9 from "../../assets/work/VigilCam/Video Recordings.png";
+import VC10 from "../../assets/work/VigilCam/Video Recordings DT.png";
+import VC11 from "../../assets/work/VigilCam/OnBoarding Screen1 Tablet.png";
+import VC12 from "../../assets/work/VigilCam/App Permissions Tablet.png";
+import VC13 from "../../assets/work/VigilCam/permissions required dialog tablet.png";
+import VC14 from "../../assets/work/VigilCam/Dark Theme Tablet.png";
+import VC15 from "../../assets/work/VigilCam/Audio Screen Tablet.png";
 import CN1 from "../../assets/work/Cloudnine/Home.png";
 import CN2 from "../../assets/work/Cloudnine/Home2.png";
 import CN3 from "../../assets/work/Cloudnine/Gallery.png";
@@ -165,7 +188,7 @@ const Projects = React.forwardRef((props, ref) => {
       id: "stockkeeper-android-app",
       name: "StocKeeper - Android Stock Management App",
       description:
-        "The ultimate stock management tool for homes and businesses. Track, plan, and purchase with ease. You can take care of your inventory with this StocKeeper app. Track stock levels, set alerts, and optimize your purchases. Perfect for homes and businesses. ",
+        "StocKeeper is a modern inventory management app for homes and businesses, featuring real-time cloud sync and collaborative group modes. It streamlines shopping with quick-add tools, smart low-stock notifications, and expiration alerts. Designed for efficiency, the app offers full offline support and customizable themes, allowing users to track stock levels and optimize purchases seamlessly.",
       technologies: [
         "Kotlin",
         "Jetpack Compose",
@@ -177,9 +200,9 @@ const Projects = React.forwardRef((props, ref) => {
         "Real-time Database",
         "Hilt",
         "Coroutines",
+        "PLAYSTORE RELEASED",
       ],
       media: [
-        AndroidPlaceholder,
         SK1,
         SK2,
         SK3,
@@ -196,10 +219,58 @@ const Projects = React.forwardRef((props, ref) => {
         SK14,
         SK15,
         SK16,
+        SK17,
+        SK18,
+        SK19,
+        SK20,
+        SK21,
+        SK22,
+        SK23,
+        SK24,
       ],
       category: "Mobile Development",
       links: [
         { type: "github", url: "https://github.com/Vishnusimha/StocKeeper" },
+      ],
+    },
+    {
+      id: "vigilcam-android-app",
+      name: "VigilCam - Background Video & Audio Recorder",
+      description:
+        "VigilCam is a specialized recording app that allows you to capture video and audio even when the screen is off or you are using other apps. Designed for reliability, it uses a background service to ensure long recordings stay stable and aren't interrupted by the system. Users can easily control recordings through notifications, manage files with fast thumbnail previews, and rely on the app even on low-storage devices. It is a secure, user-friendly tool built for seamless, discreet media capture.",
+      technologies: [
+        "Kotlin",
+        "Jetpack Compose",
+        "Foreground Services",
+        "CameraX",
+        "MediaRecorder",
+        "Notifications API",
+        "Material Design",
+        "Coroutines",
+        "Firebase Crashlytics",
+        "PLAYSTORE RELEASED",
+      ],
+      media: [
+        // AndroidPlaceholder,
+        VC1,
+        VC2,
+        VC3,
+        VC4,
+        VC5,
+        VC6,
+        VC7,
+        VC8,
+        VC9,
+        VC10,
+        VC11,
+        VC12,
+        VC13,
+        VC14,
+        VC15,
+      ],
+      category: "Mobile Development",
+      links: [
+        { type: "github", url: "https://github.com/Vishnusimha/VigilCam" },
       ],
     },
     {
