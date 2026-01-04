@@ -3,6 +3,7 @@ import { marked } from "marked";
 import hljs from "highlight.js";
 import "highlight.js/styles/github-dark.css";
 import AuthenticationVSAuthorisation from "../../assets/blogs/codingconcepts/AuthenticationVSAuthorisation.md";
+import DesignPatterns from "../../assets/blogs/codingconcepts/DesignPatterns.md";
 import SSLPinning from "../../assets/blogs/android/Implementing SSL Pinning with OkHttp and Retrofit.md";
 import KotlinDSLVSGroovy from "../../assets/blogs/android/KotlinDSLVSGroovy.md";
 import SerializableVSParcelable from "../../assets/blogs/android/SerializableVSParcelable.md";
@@ -31,6 +32,11 @@ const folderStructure = [
         name: "Authentication VS Authorisation",
         type: "file",
         content: AuthenticationVSAuthorisation,
+      },
+      {
+        name: "DesignPatterns",
+        type: "file",
+        content: DesignPatterns,
       },
       {
         name: "SQL",
