@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/Portfolio.css";
 import Home from "./Home";
 import Projects from "./Projects";
-import Resume from "./Resume";
+// import Resume from "./Resume";
 import Contact from "./Contact";
 import BlogPost from "./BlogPost";
 // import CV from "../resume/ResumeViewer"; // Commented out CV import - keeping Resume as primary
@@ -21,7 +21,7 @@ import { AiOutlineMail } from "react-icons/ai";
 const Portfolio = ({ section = "home" }) => {
   const [activeSection, setActiveSection] = useState(section);
   const [isLightTheme, setIsLightTheme] = useState(
-    document.body.classList.contains("light-theme")
+    document.body.classList.contains("light-theme"),
   );
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const themeToggleBtnRef = useRef(null);
@@ -92,8 +92,12 @@ const Portfolio = ({ section = "home" }) => {
         return <Home onNavigate={handleNavClick} />;
       case "projects":
         return <Projects />;
-      case "resume":
-        return <Resume />;
+        {
+          /* RESUME route commented out to avoid showing up in the nav bar*/
+        }
+
+      // case "resume":
+      //   return <Resume />;
       // case "CV": // Commented out CV case - using Resume as primary
       //   return <CV />;
       case "Blogs":
@@ -142,9 +146,10 @@ const Portfolio = ({ section = "home" }) => {
           {/* <li onClick={() => handleNavClick("CV")}>
             <FaBriefcase style={{ marginRight: "6px" }} /> CV
           </li> */}
-          <li onClick={() => handleNavClick("resume")}>
+          {/* RESUME route commented out to avoid showing up in the nav bar*/}
+          {/* <li onClick={() => handleNavClick("resume")}>
             <FaUserTie style={{ marginRight: "6px" }} /> Resume
-          </li>
+          </li> */}
           <li onClick={() => handleNavClick("contact")}>
             <AiOutlineMail style={{ marginRight: "6px" }} /> Contact
           </li>
