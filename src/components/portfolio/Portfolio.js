@@ -15,7 +15,8 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-import { FaUserTie, FaCode } from "react-icons/fa";
+// import { FaUserTie, FaCode } from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 
 const Portfolio = ({ section = "home" }) => {
@@ -92,12 +93,11 @@ const Portfolio = ({ section = "home" }) => {
         return <Home onNavigate={handleNavClick} />;
       case "projects":
         return <Projects />;
-        {
-          /* RESUME route commented out to avoid showing up in the nav bar*/
-        }
+//RESUME route commented out to avoid showing up in the nav bar
 
       // case "resume":
       //   return <Resume />;
+
       // case "CV": // Commented out CV case - using Resume as primary
       //   return <CV />;
       case "Blogs":
@@ -142,14 +142,17 @@ const Portfolio = ({ section = "home" }) => {
           <li onClick={() => handleNavClick("Blogs")}>
             <FaPencilAlt style={{ marginRight: "6px" }} /> Blogs
           </li>
+          
           {/* Commented out CV navigation - using Resume as primary */}
           {/* <li onClick={() => handleNavClick("CV")}>
             <FaBriefcase style={{ marginRight: "6px" }} /> CV
           </li> */}
+
           {/* RESUME route commented out to avoid showing up in the nav bar*/}
           {/* <li onClick={() => handleNavClick("resume")}>
             <FaUserTie style={{ marginRight: "6px" }} /> Resume
           </li> */}
+
           <li onClick={() => handleNavClick("contact")}>
             <AiOutlineMail style={{ marginRight: "6px" }} /> Contact
           </li>
