@@ -21,7 +21,7 @@ const Contact = React.forwardRef((props, ref) => {
         <p>
           <span className="contact-key">Phone: </span>
           <a href="tel:+3538995956611" className="contact-value">
-            +353 899595661
+            +91 9840339130
           </a>
         </p>
       </div>

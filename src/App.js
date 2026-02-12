@@ -19,7 +19,8 @@ const App = () => {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Portfolio section="home" />} />
         <Route path="/projects" element={<Portfolio section="projects" />} />
-        <Route path="/resume" element={<Portfolio section="resume" />} />
+        {/* RESUME route commented out to avoid showing up in the nav bar*/}
+        {/* <Route path="/resume" element={<Portfolio section="resume" />} /> */}
         {/* CV route commented out - using Resume as primary term for North American market */}
         {/* <Route path="/CV" element={<Portfolio section="CV" />} /> */}
         <Route path="/blogs" element={<Portfolio section="Blogs" />} />
