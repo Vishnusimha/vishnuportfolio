@@ -167,7 +167,7 @@ const BlogPost = () => {
       });
     } else {
       console.error(
-        "Marked or highlight.js not loaded. Ensure they are imported or available globally."
+        "Marked or highlight.js not loaded. Ensure they are imported or available globally.",
       );
     }
   }, []);
@@ -213,7 +213,7 @@ const BlogPost = () => {
             item.children.forEach((childItem) => {
               if (childItem.type === "folder") {
                 files = files.concat(
-                  flattenFolderFiles(childItem, childItem.name)
+                  flattenFolderFiles(childItem, childItem.name),
                 );
               }
             });
@@ -246,7 +246,7 @@ const BlogPost = () => {
           if (isUrl) {
             const baseUrl = file.content.substring(
               0,
-              file.content.lastIndexOf("/") + 1
+              file.content.lastIndexOf("/") + 1,
             );
             htmlContent = processImageUrls(htmlContent, baseUrl);
           }
@@ -275,99 +275,75 @@ const BlogPost = () => {
     loadAllPosts();
   }, []); // Empty dependency array means this runs only once on mount
 
+  // ...existing code...
   useEffect(() => {
-    if (!selectedPost || !selectedPost.html) return;
+    const postNode = postContentRef.current; // capture current ref
 
-    // Highlight code blocks
+    if (!selectedPost || !postNode || !selectedPost.html) return;
+
     const highlightTimeout = setTimeout(() => {
-      if (postContentRef.current && typeof hljs !== "undefined") {
-        const codeBlocks = postContentRef.current.querySelectorAll("pre code");
+      if (typeof hljs !== "undefined") {
+        const codeBlocks = postNode.querySelectorAll("pre code");
         codeBlocks.forEach((block) => {
-          // Check if the block hasn't been highlighted yet
-          if (!block.classList.contains("hljs")) {
-            try {
-              hljs.highlightElement(block);
-            } catch (error) {
-              console.error("Error highlighting code block:", error);
-            }
+          try {
+            hljs.highlightElement(block);
+          } catch (err) {
+            /* ignore highlight errors */
           }
         });
-      } else if (!postContentRef.current) {
-        console.log("postContentRef.current is null, cannot highlight.");
-      } else if (typeof hljs === "undefined") {
-        console.error("highlight.js not loaded, cannot highlight.");
       }
-    }, 0); // Use setTimeout to ensure DOM is updated
+    }, 0);
 
-    // Add copy buttons to code blocks
     const addCopyButtons = () => {
-      if (postContentRef.current) {
-        // Remove existing buttons first to prevent duplicates on re-render
-        const existingButtons =
-          postContentRef.current.querySelectorAll(".copy-button");
-        existingButtons.forEach((button) => button.remove());
+      // remove any existing buttons first
+      postNode.querySelectorAll(".copy-button").forEach((b) => b.remove());
 
-        const preElements = postContentRef.current.querySelectorAll("pre");
-        preElements.forEach((pre) => {
-          const button = document.createElement("button");
-          button.textContent = "Copy";
-          button.classList.add("copy-button");
-
-          // Insert button before the <pre> element
-          pre.parentNode.insertBefore(button, pre);
-
-          // Add click event listener
-          button.addEventListener("click", () => {
-            const code = pre.querySelector("code").textContent;
-            navigator.clipboard
-              .writeText(code)
-              .then(() => {
-                button.textContent = "Copied!";
-                setTimeout(() => {
-                  button.textContent = "Copy";
-                }, 2000); // Reset button text after 2 seconds
-              })
-              .catch((err) => {
-                console.error("Failed to copy: ", err);
-                button.textContent = "Error";
-                setTimeout(() => {
-                  button.textContent = "Copy";
-                }, 2000);
-              });
-          });
+      postNode.querySelectorAll("pre").forEach((pre) => {
+        const button = document.createElement("button");
+        button.textContent = "Copy";
+        button.className = "copy-button";
+        pre.parentNode.insertBefore(button, pre);
+        button.addEventListener("click", () => {
+          const code = pre.querySelector("code")?.textContent || "";
+          navigator.clipboard
+            .writeText(code)
+            .then(() => {
+              button.textContent = "Copied!";
+              setTimeout(() => (button.textContent = "Copy"), 2000);
+            })
+            .catch(() => {
+              button.textContent = "Error";
+              setTimeout(() => (button.textContent = "Copy"), 2000);
+            });
         });
-      }
+      });
     };
 
-    const copyButtonTimeout = setTimeout(() => {
-      addCopyButtons();
-    }, 0); // Use setTimeout to ensure DOM is updated
+    const copyButtonTimeout = setTimeout(addCopyButtons, 0);
 
-    const checkboxes = document.querySelectorAll(
-      ".blog-post input[type='checkbox']"
-    );
+    const checkboxes = postNode.querySelectorAll("input[type='checkbox']");
     const handleCheckboxChange = (e) => e.target.classList.toggle("checked");
     checkboxes.forEach((c) => {
-      c.disabled = false; // Ensure checkboxes are interactive
+      c.disabled = false;
       c.addEventListener("change", handleCheckboxChange);
     });
 
     return () => {
+      // use captured postNode in cleanup to satisfy exhaustive-deps
       clearTimeout(highlightTimeout);
       clearTimeout(copyButtonTimeout);
-      // Remove copy buttons on cleanup to prevent duplicates
-      if (postContentRef.current) {
-        const buttons = postContentRef.current.querySelectorAll(".copy-button");
-        buttons.forEach((button) => {
-          button.remove(); // Remove the button
-        });
+
+      if (postNode) {
+        postNode.querySelectorAll(".copy-button").forEach((b) => b.remove());
+        postNode
+          .querySelectorAll("input[type='checkbox']")
+          .forEach((c) =>
+            c.removeEventListener("change", handleCheckboxChange),
+          );
       }
-      // Remove checkbox event listeners on cleanup
-      checkboxes.forEach((c) =>
-        c.removeEventListener("change", handleCheckboxChange)
-      );
     };
-  }, [selectedPost]); // Rerun this effect when selectedPost changes
+  }, [selectedPost]);
+  // ...existing code...
 
   useEffect(() => {
     const blogSidebarElement = document.querySelector(".blog-sidebar");
@@ -453,8 +429,8 @@ const BlogPost = () => {
             item.children &&
             item.children.some(
               (child) =>
-                child.type === "folder" && child.name === categoryFilter
-            ))
+                child.type === "folder" && child.name === categoryFilter,
+            )),
       );
 
       if (categoryMatch) {
@@ -462,7 +438,7 @@ const BlogPost = () => {
           baseStructure = [categoryMatch];
         } else {
           const categoryFolder = categoryMatch.children.find(
-            (child) => child.type === "folder" && child.name === categoryFilter
+            (child) => child.type === "folder" && child.name === categoryFilter,
           );
           baseStructure = categoryFolder ? [categoryFolder] : [];
         }
@@ -498,7 +474,7 @@ const BlogPost = () => {
       ? filterStructure(
           folderStructure,
           searchQuery.toLowerCase(),
-          activeCategory
+          activeCategory,
         )
       : folderStructure;
 
@@ -511,7 +487,7 @@ const BlogPost = () => {
       folder.name !== activeCategory &&
       folder.children &&
       folder.children.some(
-        (child) => child.type === "folder" && child.name === activeCategory
+        (child) => child.type === "folder" && child.name === activeCategory,
       );
 
     return (
@@ -542,7 +518,7 @@ const BlogPost = () => {
                   <span className="file-icon">📄</span> {/* File icon */}
                   <span className="file-name">{item.name}</span>
                 </div>
-              )
+              ),
             )}
           </div>
         )}
@@ -560,7 +536,7 @@ const BlogPost = () => {
 
     const searchedAndFilteredPosts = searchQuery
       ? displayedPosts.filter((post) =>
-          post.title.toLowerCase().includes(searchQuery.toLowerCase())
+          post.title.toLowerCase().includes(searchQuery.toLowerCase()),
         )
       : displayedPosts;
 
@@ -602,7 +578,7 @@ const BlogPost = () => {
   }
 
   const categories = Array.from(
-    new Set(allPosts.map((post) => post.category))
+    new Set(allPosts.map((post) => post.category)),
   ).filter(Boolean);
 
   return (
@@ -680,7 +656,7 @@ const BlogPost = () => {
                               newState[parentPath] = true;
                               parentPath = parentPath.substring(
                                 0,
-                                parentPath.lastIndexOf("/")
+                                parentPath.lastIndexOf("/"),
                               );
                             }
                           } else if (item.children) {

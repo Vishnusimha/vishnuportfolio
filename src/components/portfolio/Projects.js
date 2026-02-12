@@ -105,7 +105,6 @@ import AndroidPlaceholder from "../../assets/work/Android.png";
 import CppPlaceholder from "../../assets/work/cpp.png";
 import PythonPlaceholder from "../../assets/work/Python.png";
 import JavaPlaceholder from "../../assets/work/java.png";
-import JavaSpringBootPlaceholder from "../../assets/work/javaSpringBoot.png";
 import JavaSpringBootReactPlaceholder from "../../assets/work/JavaSpringBootReact.png";
 import ReactJavaScriptPlaceholder from "../../assets/work/ReactJavaScript.png";
 import IoTPlaceholder from "../../assets/work/IoT.png";
@@ -158,515 +157,524 @@ import { GoDatabase } from "react-icons/go";
 import { GiArtificialIntelligence } from "react-icons/gi";
 
 const Projects = React.forwardRef((props, ref) => {
-  const projects = [
-    {
-      id: "hid-mobile-access",
-      name: "HID Mobile Access",
-      description:
-        "Contributed to the development and maintenance of HID Mobile Access, including app, SDK, and Android watch features. Worked in an agile team, handled sprint stories and customer issues using JIRA.",
-      technologies: [
-        "Kotlin",
-        "Java",
-        "Jetpack Compose",
-        "XML",
-        "Retrofit",
-        "Room",
-        "Hilt",
-        "Firebase",
-        "DataStore",
-        "Coroutines",
-        "Material Design",
-        "Navigation",
-      ],
-      media: [HID1, HID2, HID3, HID4, HID5],
-      category: "Mobile Development",
-      links: [
-        { type: "demo", url: "https://www.youtube.com/watch?v=Yfy0Y6YIJ7c" },
-      ],
-    },
-    {
-      id: "stockkeeper-android-app",
-      name: "StocKeeper - Android Stock Management App",
-      description:
-        "StocKeeper is a modern inventory management app for homes and businesses, featuring real-time cloud sync and collaborative group modes. It streamlines shopping with quick-add tools, smart low-stock notifications, and expiration alerts. Designed for efficiency, the app offers full offline support and customizable themes, allowing users to track stock levels and optimize purchases seamlessly.",
-      technologies: [
-        "Kotlin",
-        "Jetpack Compose",
-        "Retrofit",
-        "Firebase",
-        "Room",
-        "DataStore",
-        "Material Design",
-        "Real-time Database",
-        "Hilt",
-        "Coroutines",
-        "PLAYSTORE RELEASED",
-      ],
-      media: [
-        SK1,
-        SK2,
-        SK3,
-        SK4,
-        SK5,
-        SK6,
-        SK7,
-        SK8,
-        SK9,
-        SK10,
-        SK11,
-        SK12,
-        SK13,
-        SK14,
-        SK15,
-        SK16,
-        SK17,
-        SK18,
-        SK19,
-        SK20,
-        SK21,
-        SK22,
-        SK23,
-        SK24,
-      ],
-      category: "Mobile Development",
-      links: [
-        { type: "github", url: "https://github.com/Vishnusimha/StocKeeper" },
-      ],
-    },
-    {
-      id: "vigilcam-android-app",
-      name: "VigilCam - Background Video & Audio Recorder",
-      description:
-        "VigilCam is a specialized recording app that allows you to capture video and audio even when the screen is off or you are using other apps. Designed for reliability, it uses a background service to ensure long recordings stay stable and aren't interrupted by the system. Users can easily control recordings through notifications, manage files with fast thumbnail previews, and rely on the app even on low-storage devices. It is a secure, user-friendly tool built for seamless, discreet media capture.",
-      technologies: [
-        "Kotlin",
-        "Jetpack Compose",
-        "Foreground Services",
-        "CameraX",
-        "MediaRecorder",
-        "Notifications API",
-        "Material Design",
-        "Coroutines",
-        "Firebase Crashlytics",
-        "PLAYSTORE RELEASED",
-      ],
-      media: [
-        // AndroidPlaceholder,
-        VC1,
-        VC2,
-        VC3,
-        VC4,
-        VC5,
-        VC6,
-        VC7,
-        VC8,
-        VC9,
-        VC10,
-        VC11,
-        VC12,
-        VC13,
-        VC14,
-        VC15,
-      ],
-      category: "Mobile Development",
-      links: [
-        { type: "github", url: "https://github.com/Vishnusimha/VigilCam" },
-      ],
-    },
-    {
-      id: "iot-air-quality-monitoring",
-      name: "IoT Indoor Air Quality Monitoring System",
-      description:
-        "Designed and implemented an IoT-based system to monitor CO2, humidity, and temperature using Raspberry Pi and Adafruit SCD40. Real-time data visualization and alerting through a custom Android app.",
-      technologies: [
-        "Python Flask",
-        "Raspberry Pi",
-        "Linux",
-        "Edge Computing",
-        "Cloud Storage",
-        "Sensor Data Analysis",
-      ],
-      media: [
-        IoTPlaceholder,
-        PythonPlaceholder,
-        AQM1,
-        AQM2,
-        AQM3,
-        AQM4,
-        AQM5,
-        AQM6,
-        AQM7,
-        AQM8,
-        AQM9,
-        AQM10,
-        AQM11,
-        AQM12,
-        AQM13,
-      ],
-      category: "IoT",
-      links: [
-        {
-          type: "github",
-          url: "https://github.com/Vishnusimha/IndoorAirQualityEE5003",
-        },
-        {
-          type: "demo",
-          url: "https://github.com/Vishnusimha/IndoorAirQualityEE5003/blob/main/README.md",
-        },
-        {
-          type: "pdf",
-          url: AQM14,
-        },
-      ],
-    },
-    {
-      id: "social-chat-fullstack",
-      name: "Social Chat Application - Full-Stack (Android + Spring Boot)",
-      description:
-        "Built a scalable full-stack social chat app using Java (Spring Boot) microservices and React. Designed secure REST APIs for users, posts, and comments, with JWT authentication, resilient service communication, and MySQL data storage. Created a responsive React frontend for seamless user experience, routing all requests via an API gateway.",
-      technologies: [
-        "Java 17+",
-        "Spring Boot",
-        "Spring Cloud Gateway",
-        "Eureka",
-        "Spring Data JPA",
-        "Resilience4j",
-        "MySQL",
-        "JWT",
-        "Gradle",
-        "Docker",
-        "React (19+)",
-        "JavaScript (ES6+)",
-        "HTML5",
-        "CSS3",
-        "Android",
-        "Kotlin",
-        "Jetpack Compose",
-        "Coroutines",
-        "Retrofit",
-        "Room",
-      ],
-      media: [
-        JavaSpringBootReactPlaceholder,
-        ChatApp1,
-        ChatApp2,
-        ChatApp3,
-        ChatApp4,
-        ChatApp5,
-        ChatApp6,
-        ChatApp7,
-        ChatApp8,
-        ChatApp9,
-        AndroidPlaceholder,
-      ],
-      category: "Full-Stack Development",
-      links: [
-        {
-          type: "github",
-          url: "https://github.com/Vishnusimha/SecretMessage",
-        },
-        {
-          type: "github",
-          url: "https://github.com/Vishnusimha/chat-microservices",
-        },
-      ],
-    },
-    {
-      id: "fullstack-restaurant-webapp",
-      name: "Full-Stack Web Application - Online Business",
-      description:
-        "Developed a web application for an online takeaway restaurant business using Spring Boot and MySQL. The project features a responsive design, user authentication, and a dynamic menu. The backend is powered by Spring Boot, while the frontend is developed using HTML, CSS, and JavaScript.",
-      technologies: [
-        "Java",
-        "Spring Boot",
-        "MySQL",
-        "Microservices",
-        "Spring Security",
-        "Spring Data JPA",
-        "Spring MVC",
-        "Rest API",
-        "MVVM",
-        "HTML/CSS",
-        "JavaScript",
-      ],
-      media: [
-        Res1,
-        Res2,
-        Res3,
-        Res4,
-        Res5,
-        Res6,
-        Res7,
-        Res8,
-        Res9,
-        Res10,
-        Res11,
-      ],
-      category: "Full-Stack Development",
-      links: [
-        { type: "github", url: "https://github.com/Vishnusimha/ee417-project" },
-      ],
-    },
-    {
-      id: "balloon-decor-website",
-      name: "Balloon Decor Business Website",
-      description:
-        "A complete online business website for a balloon decor venture. This full-stack project utilizes Spring Boot and MySQL for the server-side logic and database, complemented by a basic HTML/CSS frontend",
-      technologies: [
-        "Java",
-        "Spring Boot",
-        "MySQL",
-        "Microservices",
-        "MVVM",
-        "HTML/CSS",
-        "JavaScript",
-        "Rest API",
-      ],
-      media: [CN1, CN2, CN3, CN4, CN5, CN6, CN7, CN8, CN9],
-      category: "Full-Stack Development",
-      links: [
-        { type: "github", url: "https://github.com/Vishnusimha/cloudnine" },
-        { type: "github", url: "https://github.com/Vishnusimha/webapp" },
-      ],
-    },
-    {
-      id: "feature-rich-android-apps",
-      name: "Feature-Rich Android Applications",
-      description:
-        "Created modern Android apps using Kotlin with Jetpack Compose and XML views, integrating technologies like Retrofit, Room, Firebase, Hilt, and Coroutines to deliver scalable, maintainable codebases.",
-      technologies: [
-        "Kotlin",
-        "Jetpack Compose",
-        "XML",
-        "Retrofit",
-        "Room",
-        "Firebase",
-        "Hilt",
-        "Coroutines",
-        "OkHttp",
-        "DataStore",
-        "Material Design",
-        "SonarQube Integration",
-      ],
-      media: [
-        AndroidPlaceholder,
-        AndroidFeat1,
-        AndroidFeat2,
-        AndroidFeat3,
-        AndroidFeat4,
-        AndroidFeat5,
-        AndroidFeat6,
-      ],
-      category: "Mobile Development",
-      links: [
-        {
-          type: "github",
-          url: "https://github.com/Vishnusimha/FeaturesCompose",
-        },
-        {
-          type: "github",
-          url: "https://github.com/Vishnusimha/FeaturesXml",
-        },
-      ],
-    },
-    {
-      id: "notes-android-app",
-      name: "Notes - Android App",
-      description:
-        "Developed a note-taking application for Android using Kotlin and Jetpack Compose. Implemented features like user authentication, note creation, editing, and deletion. Utilized Room Database for local data storage and ensured a smooth user experience with a responsive UI.",
-      technologies: ["Kotlin", "Android", "Jetpack Compose", "Room Database"],
-      media: [
-        AndroidPlaceholder,
-        NotesApp1,
-        NotesApp2,
-        NotesApp3,
-        NotesApp4,
-        NotesApp5,
-        NotesApp6,
-      ],
-      category: "Mobile Development",
-      links: [
-        {
-          type: "github",
-          url: "https://github.com/Vishnusimha/Notes",
-        },
-      ],
-    },
-    {
-      id: "personal-portfolio-website",
-      name: "Personal Portfolio Website",
-      description:
-        "A modern, responsive portfolio website built with React showcasing professional experience, projects, and technical skills. Features interactive project galleries, markdown-based blog system with syntax highlighting, downloadable resume, contact form integration, and dark/light theme toggle. Implements XSS protection with DOMPurify for secure content rendering.",
-      technologies: [
-        "React",
-        "React Router",
-        "React Icons",
-        "React Typed",
-        "Framer Motion",
-        "Lottie React",
-        "Marked",
-        "Highlight.js",
-        "DOMPurify",
-        "EmailJS",
-        "Formspree",
-        "Tailwind CSS",
-        "PostCSS",
-        "GitHub Pages",
-        "Vercel",
-      ],
-      media: [ReactJavaScriptPlaceholder],
-      category: "Full-Stack Development",
-      links: [
-        {
-          type: "github",
-          url: "https://github.com/Vishnusimha/vishnuportfolio",
-        },
-        {
-          type: "demo",
-          url: "https://vishnusimha.github.io/vishnuportfolio",
-        },
-        {
-          type: "demo",
-          url: "https://vishnusimha.github.io/vishnuportfolio/home",
-        },
-      ],
-    },
-    {
-      id: "weather-dashboard-react",
-      name: "Weather Dashboard – React Project",
-      description:
-        "Developed a responsive weather dashboard using React and OpenWeatherMap API. Features include data fetching, error handling, and real-time UI updates. Deployed via GitHub Pages.",
-      technologies: ["React", "JavaScript", "REST API", "CSS"],
-      media: [OpenWeatherApp1, OpenWeatherApp2],
-      category: "Full-Stack Development",
-      links: [
-        {
-          type: "github",
-          url: "https://github.com/Vishnusimha/react-weather-dashboard",
-        },
-        {
-          type: "demo",
-          url: "https://vishnusimha.github.io/react-weather-dashboard/",
-        },
-      ],
-    },
-    {
-      id: "java-client-server-robot-simulation",
-      name: "Java Client-Server Architecture for Multi-Agent Robot Simulation",
-      description:
-        "Implemented a multi-threaded client-server application in Java for simulating and controlling multiple robot clients. The architecture features a Swing-based GUI on both ends, enabling real-time interaction and visualization. Key functionalities include network communication via Robot objects, concurrent handling of multiple clients, dynamic GUI updates (robot positions, collision alerts, connection status), and client-side speed control with optional automatic updates.",
-      technologies: [
-        "Client-Server Architecture",
-        "Real-time Control",
-        "Object Serialization",
-        "Multi-threading",
-        "Event Handling",
-        "Java Sockets",
-        "Java GUI",
-        "Java AWT Canvas",
-        "Java Swing",
-        "Automatic Updates",
-      ],
-      category: "Software Systems",
-      media: [
-        JavaPlaceholder,
-        CSA1,
-        CSA2,
-        CSA3,
-        CSA4,
-        CSA5,
-        CSA6,
-        CSA7,
-        CSA8,
-        CSA9,
-      ],
-      links: [
-        {
-          type: "github",
-          url: "https://github.com/Vishnusimha/JavaClientServerApplication",
-        },
-      ],
-    },
-    {
-      id: "human-activity-recognition-ml",
-      name: "Human Activity Recognition - Data Analysis and ML",
-      description:
-        "Built a predictive model using supervised learning on sensor data from the Extrasensory dataset. Performed feature engineering, performance analysis, and model selection.",
-      technologies: ["Python", "Jupyter Notebook", "Pandas", "NumPy", "ML"],
-      media: [
-        PythonPlaceholder,
-        DAML1,
-        DAML2,
-        DAML3,
-        DAML4,
-        DAML5,
-        DAML6,
-        DAML7,
-        DAML8,
-      ],
-      category: "Data Science / Machine Learning",
-      links: [
-        { type: "github", url: "https://github.com/Vishnusimha/GoogleCollab" },
-        {
-          type: "pdf",
-          url: "https://github.com/Vishnusimha/GoogleCollab/blob/main/DA_ML%20for%20git.pdf",
-        },
-      ],
-    },
-    {
-      id: "aes-present-encryption-algorithms",
-      name: "AES-128 and PRESENT-80 Encryption-Algorithms - Academic Project",
-      description:
-        "Implemented AES-128 and PRESENT-80 cipher encryption in C++, ensuring adherence to specified key and block sizes. Validated implementation through ECB mode test encryptions and provided a concise comparison between the two algorithms.",
-      technologies: [
-        "C++",
-        "Python",
-        "Encryption Software",
-        "Object-Oriented Programming (OOP)",
-        "Software Design",
-      ],
-      // TODO : Add AES-128 and PRESENT-80 images
-      media: [CppPlaceholder, PythonPlaceholder],
-      category: "Software Systems",
-      links: [
-        {
-          type: "github",
-          url: "https://github.com/Vishnusimha/AES-Encryption-Algorithm",
-        },
-        {
-          type: "pdf",
-          url: "https://github.com/Vishnusimha/Present80-Encryption-Algorithm",
-        },
-      ],
-    },
-    {
-      id: "cpp-design-challenge",
-      name: "C++ Design Challenge - Academic Project",
-      description:
-        "Designed and implemented a robust C++ security system with keypad, fingerprint, and hybrid locks for flexible authentication. Proficiently applied OOP principles like inheritance, polymorphism, and dynamic memory management. Showcased expertise in container classes and algorithms for efficient data manipulation. Overall, demonstrated strong capabilities in software design and implementation.",
-      technologies: [
-        "C++",
-        "Object-Oriented Programming (OOP)",
-        "Software Design",
-      ],
-      // TODO :C++ Design Challenge images
-      media: [CppPlaceholder],
-      category: "Software Systems",
-      links: [
-        {
-          type: "github",
-          url: "https://github.com/Vishnusimha/CppDesignChallange",
-        },
-        {
-          type: "pdf",
-          url: "https://github.com/Vishnusimha/CppDesignChallange/blob/main/C%2B%2B%20Design%20challenge%20code%20Documentation%20GIT.pdf",
-        },
-      ],
-    },
-  ];
+  const projects = useMemo(
+    () => [
+      {
+        id: "hid-mobile-access",
+        name: "HID Mobile Access",
+        description:
+          "Contributed to the development and maintenance of HID Mobile Access, including app, SDK, and Android watch features. Worked in an agile team, handled sprint stories and customer issues using JIRA.",
+        technologies: [
+          "Kotlin",
+          "Java",
+          "Jetpack Compose",
+          "XML",
+          "Retrofit",
+          "Room",
+          "Hilt",
+          "Firebase",
+          "DataStore",
+          "Coroutines",
+          "Material Design",
+          "Navigation",
+        ],
+        media: [HID1, HID2, HID3, HID4, HID5],
+        category: "Mobile Development",
+        links: [
+          { type: "demo", url: "https://www.youtube.com/watch?v=Yfy0Y6YIJ7c" },
+        ],
+      },
+      {
+        id: "stockkeeper-android-app",
+        name: "StocKeeper - Android Stock Management App",
+        description:
+          "StocKeeper is a modern inventory management app for homes and businesses, featuring real-time cloud sync and collaborative group modes. It streamlines shopping with quick-add tools, smart low-stock notifications, and expiration alerts. Designed for efficiency, the app offers full offline support and customizable themes, allowing users to track stock levels and optimize purchases seamlessly.",
+        technologies: [
+          "Kotlin",
+          "Jetpack Compose",
+          "Retrofit",
+          "Firebase",
+          "Room",
+          "DataStore",
+          "Material Design",
+          "Real-time Database",
+          "Hilt",
+          "Coroutines",
+          "PLAYSTORE RELEASED",
+        ],
+        media: [
+          SK1,
+          SK2,
+          SK3,
+          SK4,
+          SK5,
+          SK6,
+          SK7,
+          SK8,
+          SK9,
+          SK10,
+          SK11,
+          SK12,
+          SK13,
+          SK14,
+          SK15,
+          SK16,
+          SK17,
+          SK18,
+          SK19,
+          SK20,
+          SK21,
+          SK22,
+          SK23,
+          SK24,
+        ],
+        category: "Mobile Development",
+        links: [
+          { type: "github", url: "https://github.com/Vishnusimha/StocKeeper" },
+        ],
+      },
+      {
+        id: "vigilcam-android-app",
+        name: "VigilCam - Background Video & Audio Recorder",
+        description:
+          "VigilCam is a specialized recording app that allows you to capture video and audio even when the screen is off or you are using other apps. Designed for reliability, it uses a background service to ensure long recordings stay stable and aren't interrupted by the system. Users can easily control recordings through notifications, manage files with fast thumbnail previews, and rely on the app even on low-storage devices. It is a secure, user-friendly tool built for seamless, discreet media capture.",
+        technologies: [
+          "Kotlin",
+          "Jetpack Compose",
+          "Foreground Services",
+          "CameraX",
+          "MediaRecorder",
+          "Notifications API",
+          "Material Design",
+          "Coroutines",
+          "Firebase Crashlytics",
+          "PLAYSTORE RELEASED",
+        ],
+        media: [
+          // AndroidPlaceholder,
+          VC1,
+          VC2,
+          VC3,
+          VC4,
+          VC5,
+          VC6,
+          VC7,
+          VC8,
+          VC9,
+          VC10,
+          VC11,
+          VC12,
+          VC13,
+          VC14,
+          VC15,
+        ],
+        category: "Mobile Development",
+        links: [
+          { type: "github", url: "https://github.com/Vishnusimha/VigilCam" },
+        ],
+      },
+      {
+        id: "iot-air-quality-monitoring",
+        name: "IoT Indoor Air Quality Monitoring System",
+        description:
+          "Designed and implemented an IoT-based system to monitor CO2, humidity, and temperature using Raspberry Pi and Adafruit SCD40. Real-time data visualization and alerting through a custom Android app.",
+        technologies: [
+          "Python Flask",
+          "Raspberry Pi",
+          "Linux",
+          "Edge Computing",
+          "Cloud Storage",
+          "Sensor Data Analysis",
+        ],
+        media: [
+          IoTPlaceholder,
+          PythonPlaceholder,
+          AQM1,
+          AQM2,
+          AQM3,
+          AQM4,
+          AQM5,
+          AQM6,
+          AQM7,
+          AQM8,
+          AQM9,
+          AQM10,
+          AQM11,
+          AQM12,
+          AQM13,
+        ],
+        category: "IoT",
+        links: [
+          {
+            type: "github",
+            url: "https://github.com/Vishnusimha/IndoorAirQualityEE5003",
+          },
+          {
+            type: "demo",
+            url: "https://github.com/Vishnusimha/IndoorAirQualityEE5003/blob/main/README.md",
+          },
+          {
+            type: "pdf",
+            url: AQM14,
+          },
+        ],
+      },
+      {
+        id: "social-chat-fullstack",
+        name: "Social Chat Application - Full-Stack (Android + Spring Boot)",
+        description:
+          "Built a scalable full-stack social chat app using Java (Spring Boot) microservices and React. Designed secure REST APIs for users, posts, and comments, with JWT authentication, resilient service communication, and MySQL data storage. Created a responsive React frontend for seamless user experience, routing all requests via an API gateway.",
+        technologies: [
+          "Java 17+",
+          "Spring Boot",
+          "Spring Cloud Gateway",
+          "Eureka",
+          "Spring Data JPA",
+          "Resilience4j",
+          "MySQL",
+          "JWT",
+          "Gradle",
+          "Docker",
+          "React (19+)",
+          "JavaScript (ES6+)",
+          "HTML5",
+          "CSS3",
+          "Android",
+          "Kotlin",
+          "Jetpack Compose",
+          "Coroutines",
+          "Retrofit",
+          "Room",
+        ],
+        media: [
+          JavaSpringBootReactPlaceholder,
+          ChatApp1,
+          ChatApp2,
+          ChatApp3,
+          ChatApp4,
+          ChatApp5,
+          ChatApp6,
+          ChatApp7,
+          ChatApp8,
+          ChatApp9,
+          AndroidPlaceholder,
+        ],
+        category: "Full-Stack Development",
+        links: [
+          {
+            type: "github",
+            url: "https://github.com/Vishnusimha/SecretMessage",
+          },
+          {
+            type: "github",
+            url: "https://github.com/Vishnusimha/chat-microservices",
+          },
+        ],
+      },
+      {
+        id: "fullstack-restaurant-webapp",
+        name: "Full-Stack Web Application - Online Business",
+        description:
+          "Developed a web application for an online takeaway restaurant business using Spring Boot and MySQL. The project features a responsive design, user authentication, and a dynamic menu. The backend is powered by Spring Boot, while the frontend is developed using HTML, CSS, and JavaScript.",
+        technologies: [
+          "Java",
+          "Spring Boot",
+          "MySQL",
+          "Microservices",
+          "Spring Security",
+          "Spring Data JPA",
+          "Spring MVC",
+          "Rest API",
+          "MVVM",
+          "HTML/CSS",
+          "JavaScript",
+        ],
+        media: [
+          Res1,
+          Res2,
+          Res3,
+          Res4,
+          Res5,
+          Res6,
+          Res7,
+          Res8,
+          Res9,
+          Res10,
+          Res11,
+        ],
+        category: "Full-Stack Development",
+        links: [
+          {
+            type: "github",
+            url: "https://github.com/Vishnusimha/ee417-project",
+          },
+        ],
+      },
+      {
+        id: "balloon-decor-website",
+        name: "Balloon Decor Business Website",
+        description:
+          "A complete online business website for a balloon decor venture. This full-stack project utilizes Spring Boot and MySQL for the server-side logic and database, complemented by a basic HTML/CSS frontend",
+        technologies: [
+          "Java",
+          "Spring Boot",
+          "MySQL",
+          "Microservices",
+          "MVVM",
+          "HTML/CSS",
+          "JavaScript",
+          "Rest API",
+        ],
+        media: [CN1, CN2, CN3, CN4, CN5, CN6, CN7, CN8, CN9],
+        category: "Full-Stack Development",
+        links: [
+          { type: "github", url: "https://github.com/Vishnusimha/cloudnine" },
+          { type: "github", url: "https://github.com/Vishnusimha/webapp" },
+        ],
+      },
+      {
+        id: "feature-rich-android-apps",
+        name: "Feature-Rich Android Applications",
+        description:
+          "Created modern Android apps using Kotlin with Jetpack Compose and XML views, integrating technologies like Retrofit, Room, Firebase, Hilt, and Coroutines to deliver scalable, maintainable codebases.",
+        technologies: [
+          "Kotlin",
+          "Jetpack Compose",
+          "XML",
+          "Retrofit",
+          "Room",
+          "Firebase",
+          "Hilt",
+          "Coroutines",
+          "OkHttp",
+          "DataStore",
+          "Material Design",
+          "SonarQube Integration",
+        ],
+        media: [
+          AndroidPlaceholder,
+          AndroidFeat1,
+          AndroidFeat2,
+          AndroidFeat3,
+          AndroidFeat4,
+          AndroidFeat5,
+          AndroidFeat6,
+        ],
+        category: "Mobile Development",
+        links: [
+          {
+            type: "github",
+            url: "https://github.com/Vishnusimha/FeaturesCompose",
+          },
+          {
+            type: "github",
+            url: "https://github.com/Vishnusimha/FeaturesXml",
+          },
+        ],
+      },
+      {
+        id: "notes-android-app",
+        name: "Notes - Android App",
+        description:
+          "Developed a note-taking application for Android using Kotlin and Jetpack Compose. Implemented features like user authentication, note creation, editing, and deletion. Utilized Room Database for local data storage and ensured a smooth user experience with a responsive UI.",
+        technologies: ["Kotlin", "Android", "Jetpack Compose", "Room Database"],
+        media: [
+          AndroidPlaceholder,
+          NotesApp1,
+          NotesApp2,
+          NotesApp3,
+          NotesApp4,
+          NotesApp5,
+          NotesApp6,
+        ],
+        category: "Mobile Development",
+        links: [
+          {
+            type: "github",
+            url: "https://github.com/Vishnusimha/Notes",
+          },
+        ],
+      },
+      {
+        id: "personal-portfolio-website",
+        name: "Personal Portfolio Website",
+        description:
+          "A modern, responsive portfolio website built with React showcasing professional experience, projects, and technical skills. Features interactive project galleries, markdown-based blog system with syntax highlighting, downloadable resume, contact form integration, and dark/light theme toggle. Implements XSS protection with DOMPurify for secure content rendering.",
+        technologies: [
+          "React",
+          "React Router",
+          "React Icons",
+          "React Typed",
+          "Framer Motion",
+          "Lottie React",
+          "Marked",
+          "Highlight.js",
+          "DOMPurify",
+          "EmailJS",
+          "Formspree",
+          "Tailwind CSS",
+          "PostCSS",
+          "GitHub Pages",
+          "Vercel",
+        ],
+        media: [ReactJavaScriptPlaceholder],
+        category: "Full-Stack Development",
+        links: [
+          {
+            type: "github",
+            url: "https://github.com/Vishnusimha/vishnuportfolio",
+          },
+          {
+            type: "demo",
+            url: "https://vishnusimha.github.io/vishnuportfolio",
+          },
+          {
+            type: "demo",
+            url: "https://vishnusimha.github.io/vishnuportfolio/home",
+          },
+        ],
+      },
+      {
+        id: "weather-dashboard-react",
+        name: "Weather Dashboard – React Project",
+        description:
+          "Developed a responsive weather dashboard using React and OpenWeatherMap API. Features include data fetching, error handling, and real-time UI updates. Deployed via GitHub Pages.",
+        technologies: ["React", "JavaScript", "REST API", "CSS"],
+        media: [OpenWeatherApp1, OpenWeatherApp2],
+        category: "Full-Stack Development",
+        links: [
+          {
+            type: "github",
+            url: "https://github.com/Vishnusimha/react-weather-dashboard",
+          },
+          {
+            type: "demo",
+            url: "https://vishnusimha.github.io/react-weather-dashboard/",
+          },
+        ],
+      },
+      {
+        id: "java-client-server-robot-simulation",
+        name: "Java Client-Server Architecture for Multi-Agent Robot Simulation",
+        description:
+          "Implemented a multi-threaded client-server application in Java for simulating and controlling multiple robot clients. The architecture features a Swing-based GUI on both ends, enabling real-time interaction and visualization. Key functionalities include network communication via Robot objects, concurrent handling of multiple clients, dynamic GUI updates (robot positions, collision alerts, connection status), and client-side speed control with optional automatic updates.",
+        technologies: [
+          "Client-Server Architecture",
+          "Real-time Control",
+          "Object Serialization",
+          "Multi-threading",
+          "Event Handling",
+          "Java Sockets",
+          "Java GUI",
+          "Java AWT Canvas",
+          "Java Swing",
+          "Automatic Updates",
+        ],
+        category: "Software Systems",
+        media: [
+          JavaPlaceholder,
+          CSA1,
+          CSA2,
+          CSA3,
+          CSA4,
+          CSA5,
+          CSA6,
+          CSA7,
+          CSA8,
+          CSA9,
+        ],
+        links: [
+          {
+            type: "github",
+            url: "https://github.com/Vishnusimha/JavaClientServerApplication",
+          },
+        ],
+      },
+      {
+        id: "human-activity-recognition-ml",
+        name: "Human Activity Recognition - Data Analysis and ML",
+        description:
+          "Built a predictive model using supervised learning on sensor data from the Extrasensory dataset. Performed feature engineering, performance analysis, and model selection.",
+        technologies: ["Python", "Jupyter Notebook", "Pandas", "NumPy", "ML"],
+        media: [
+          PythonPlaceholder,
+          DAML1,
+          DAML2,
+          DAML3,
+          DAML4,
+          DAML5,
+          DAML6,
+          DAML7,
+          DAML8,
+        ],
+        category: "Data Science / Machine Learning",
+        links: [
+          {
+            type: "github",
+            url: "https://github.com/Vishnusimha/GoogleCollab",
+          },
+          {
+            type: "pdf",
+            url: "https://github.com/Vishnusimha/GoogleCollab/blob/main/DA_ML%20for%20git.pdf",
+          },
+        ],
+      },
+      {
+        id: "aes-present-encryption-algorithms",
+        name: "AES-128 and PRESENT-80 Encryption-Algorithms - Academic Project",
+        description:
+          "Implemented AES-128 and PRESENT-80 cipher encryption in C++, ensuring adherence to specified key and block sizes. Validated implementation through ECB mode test encryptions and provided a concise comparison between the two algorithms.",
+        technologies: [
+          "C++",
+          "Python",
+          "Encryption Software",
+          "Object-Oriented Programming (OOP)",
+          "Software Design",
+        ],
+        // TODO : Add AES-128 and PRESENT-80 images
+        media: [CppPlaceholder, PythonPlaceholder],
+        category: "Software Systems",
+        links: [
+          {
+            type: "github",
+            url: "https://github.com/Vishnusimha/AES-Encryption-Algorithm",
+          },
+          {
+            type: "pdf",
+            url: "https://github.com/Vishnusimha/Present80-Encryption-Algorithm",
+          },
+        ],
+      },
+      {
+        id: "cpp-design-challenge",
+        name: "C++ Design Challenge - Academic Project",
+        description:
+          "Designed and implemented a robust C++ security system with keypad, fingerprint, and hybrid locks for flexible authentication. Proficiently applied OOP principles like inheritance, polymorphism, and dynamic memory management. Showcased expertise in container classes and algorithms for efficient data manipulation. Overall, demonstrated strong capabilities in software design and implementation.",
+        technologies: [
+          "C++",
+          "Object-Oriented Programming (OOP)",
+          "Software Design",
+        ],
+        // TODO :C++ Design Challenge images
+        media: [CppPlaceholder],
+        category: "Software Systems",
+        links: [
+          {
+            type: "github",
+            url: "https://github.com/Vishnusimha/CppDesignChallange",
+          },
+          {
+            type: "pdf",
+            url: "https://github.com/Vishnusimha/CppDesignChallange/blob/main/C%2B%2B%20Design%20challenge%20code%20Documentation%20GIT.pdf",
+          },
+        ],
+      },
+    ],
+    [],
+  );
 
   const [currentMediaIndex, setCurrentMediaIndex] = useState(
-    Array(projects.length).fill(0)
+    Array(projects.length).fill(0),
   );
 
   // State to manage the active category filter, null means "All"
@@ -674,11 +682,11 @@ const Projects = React.forwardRef((props, ref) => {
 
   // Auto-carousel states
   const [isAutoPlaying, setIsAutoPlaying] = useState(
-    Array(projects.length).fill(true)
+    Array(projects.length).fill(true),
   );
   const intervalRefs = useRef(Array(projects.length).fill(null));
   const [userPausedProjects, setUserPausedProjects] = useState(
-    Array(projects.length).fill(false)
+    Array(projects.length).fill(false),
   );
 
   // Lightbox/Modal states
@@ -693,7 +701,7 @@ const Projects = React.forwardRef((props, ref) => {
 
   // Get unique categories from the projects data
   const categories = Array.from(
-    new Set(projects.map((project) => project.category))
+    new Set(projects.map((project) => project.category)),
   );
 
   // Create a mapping of project IDs to their indices for better performance
@@ -706,32 +714,36 @@ const Projects = React.forwardRef((props, ref) => {
   }, [projects]);
 
   // Auto-carousel functionality
-  const startAutoPlay = (projectIndex) => {
-    if (projects[projectIndex].media.length <= 1) return;
+  const startAutoPlay = useCallback(
+    (projectIndex) => {
+      if (projects[projectIndex].media.length <= 1) return;
 
-    // Clear existing interval if any
-    if (intervalRefs.current[projectIndex]) {
-      clearInterval(intervalRefs.current[projectIndex]);
-    }
+      if (intervalRefs.current[projectIndex]) {
+        clearInterval(intervalRefs.current[projectIndex]);
+      }
 
-    const intervalId = setInterval(() => {
-      setCurrentMediaIndex((prevIndexes) =>
-        prevIndexes.map((index, i) =>
-          i === projectIndex
-            ? (index + 1) % projects[projectIndex].media.length
-            : index
-        )
+      const intervalId = setInterval(() => {
+        setCurrentMediaIndex((prevIndexes) =>
+          prevIndexes.map((index, i) =>
+            i === projectIndex
+              ? (index + 1) % projects[projectIndex].media.length
+              : index,
+          ),
+        );
+      }, 3000); // Change slide every 3 seconds
+
+      intervalRefs.current[projectIndex] = intervalId;
+
+      setIsAutoPlaying((prev) =>
+        prev.map((playing, i) => (i === projectIndex ? true : playing)),
       );
-    }, 3000); // Change slide every 3 seconds
 
-    intervalRefs.current[projectIndex] = intervalId;
-    setIsAutoPlaying((prev) =>
-      prev.map((playing, i) => (i === projectIndex ? true : playing))
-    );
-    setUserPausedProjects((prev) =>
-      prev.map((paused, i) => (i === projectIndex ? false : paused))
-    );
-  };
+      setUserPausedProjects((prev) =>
+        prev.map((paused, i) => (i === projectIndex ? false : paused)),
+      );
+    },
+    [projects],
+  );
 
   const stopAutoPlay = (projectIndex) => {
     if (intervalRefs.current[projectIndex]) {
@@ -739,10 +751,10 @@ const Projects = React.forwardRef((props, ref) => {
       intervalRefs.current[projectIndex] = null;
     }
     setIsAutoPlaying((prev) =>
-      prev.map((playing, i) => (i === projectIndex ? false : playing))
+      prev.map((playing, i) => (i === projectIndex ? false : playing)),
     );
     setUserPausedProjects((prev) =>
-      prev.map((paused, i) => (i === projectIndex ? true : paused))
+      prev.map((paused, i) => (i === projectIndex ? true : paused)),
     );
   };
 
@@ -774,26 +786,28 @@ const Projects = React.forwardRef((props, ref) => {
     }
   };
 
-  const nextLightboxImage = () => {
-    if (
-      lightboxProject &&
-      lightboxImageIndex < lightboxProject.media.length - 1
-    ) {
-      setLightboxImageIndex(lightboxImageIndex + 1);
-      setLightboxZoomed(false);
-    }
-  };
+const nextLightboxImage = useCallback(() => {
+  if (
+    lightboxProject &&
+    lightboxImageIndex < lightboxProject.media.length - 1
+  ) {
+    setLightboxImageIndex((prev) => prev + 1);
+    setLightboxZoomed(false);
+  }
+}, [lightboxProject, lightboxImageIndex]);
 
-  const prevLightboxImage = () => {
-    if (lightboxProject && lightboxImageIndex > 0) {
-      setLightboxImageIndex(lightboxImageIndex - 1);
-      setLightboxZoomed(false);
-    }
-  };
+const prevLightboxImage = useCallback(() => {
+  if (lightboxProject && lightboxImageIndex > 0) {
+    setLightboxImageIndex((prev) => prev - 1);
+    setLightboxZoomed(false);
+  }
+}, [lightboxProject, lightboxImageIndex]);
 
-  const toggleLightboxZoom = () => {
-    setLightboxZoomed(!lightboxZoomed);
-  };
+
+const toggleLightboxZoom = useCallback(() => {
+  setLightboxZoomed((prev) => !prev);
+}, []);
+
 
   const toggleFullScreen = async () => {
     if (!document.fullscreenElement) {
@@ -845,7 +859,7 @@ const Projects = React.forwardRef((props, ref) => {
           break;
       }
     },
-    [lightboxOpen, lightboxImageIndex, lightboxProject]
+    [lightboxOpen, nextLightboxImage, prevLightboxImage, toggleLightboxZoom],
   );
 
   // Focus trap for lightbox accessibility
@@ -853,7 +867,7 @@ const Projects = React.forwardRef((props, ref) => {
     if (lightboxOpen && lightboxContainerRef.current) {
       const container = lightboxContainerRef.current;
       const focusableElements = container.querySelectorAll(
-        'button, [href], [tabindex]:not([tabindex="-1"])'
+        'button, [href], [tabindex]:not([tabindex="-1"])',
       );
       const firstElement = focusableElements[0];
       const lastElement = focusableElements[focusableElements.length - 1];
@@ -954,7 +968,7 @@ const Projects = React.forwardRef((props, ref) => {
         }
       });
     };
-  }, []); // Empty dependency array - only run once on mount
+  }, [projects, startAutoPlay]); // Empty dependency array - only run once on mount
 
   // Handle category changes
   useEffect(() => {
@@ -974,7 +988,7 @@ const Projects = React.forwardRef((props, ref) => {
         }
       });
     }, 100);
-  }, [activeCategory]);
+  }, [activeCategory, projects, startAutoPlay, userPausedProjects]);
 
   const getCategoryIcons = useCallback((category) => {
     switch (category) {
@@ -1042,8 +1056,8 @@ const Projects = React.forwardRef((props, ref) => {
       prevIndexes.map((index, i) =>
         i === projectIndex
           ? (index + 1) % projects[projectIndex].media.length
-          : index
-      )
+          : index,
+      ),
     );
   };
 
@@ -1057,8 +1071,8 @@ const Projects = React.forwardRef((props, ref) => {
           ? index === 0
             ? projects[projectIndex].media.length - 1
             : index - 1
-          : index
-      )
+          : index,
+      ),
     );
   };
 
@@ -1067,7 +1081,7 @@ const Projects = React.forwardRef((props, ref) => {
     stopAutoPlay(projectIndex);
 
     setCurrentMediaIndex((prevIndexes) =>
-      prevIndexes.map((index, i) => (i === projectIndex ? mediaIndex : index))
+      prevIndexes.map((index, i) => (i === projectIndex ? mediaIndex : index)),
     );
   };
 
@@ -1124,7 +1138,7 @@ const Projects = React.forwardRef((props, ref) => {
                       onClick={() =>
                         openLightbox(
                           projectIndex,
-                          currentMediaIndex[projectIndex]
+                          currentMediaIndex[projectIndex],
                         )
                       }
                       style={{ cursor: "pointer" }}
