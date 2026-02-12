@@ -1,3 +1,4 @@
+// TODO - simply uncommend all code and commit to make the CV feature work also uncomment in App.js and places to work
 // import React, { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 // import resumePDF from "../../assets/Vishnu Simha Software Engineer Resume.pdf";
