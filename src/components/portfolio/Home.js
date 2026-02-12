@@ -190,8 +190,8 @@ Looking forward to connecting with you!`,
               <ReactTyped
                 strings={[
                   "Software Engineer",
-                  "Android Developer",
                   "Full stack Developer",
+                  "Android Developer",
                   "AWS Solution Architect - Associate",
                 ]}
                 typeSpeed={30}
